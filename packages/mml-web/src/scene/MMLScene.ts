@@ -1,6 +1,7 @@
 import { DebugHelper } from "../debug-helper";
 import {
   Animation,
+  AnimationArea,
   Audio,
   ChatProbe,
   Cube,
@@ -22,6 +23,7 @@ import {
   Video,
 } from "../elements";
 import {
+  AnimationAreaGraphics,
   AnimationGraphics,
   AudioGraphics,
   ChatProbeGraphics,
@@ -51,6 +53,7 @@ import { LoadingProgressManager } from "../loading";
 import { PromptManager } from "../prompt-ui";
 
 export interface MMLGraphicsInterface<C extends GraphicsAdapter> {
+  MMLAnimationAreaGraphicsInterface: (element: AnimationArea<C>) => AnimationAreaGraphics<C>;
   MMLAnimationGraphicsInterface: (element: Animation<C>) => AnimationGraphics<C>;
   MMLDebugHelperGraphicsInterface<G extends C>(debugHelper: DebugHelper<G>): DebugHelperGraphics<G>;
   RemoteDocumentGraphicsInterface: (element: RemoteDocument<C>) => RemoteDocumentGraphics<C>;
@@ -129,6 +132,10 @@ export type IMMLScene<G extends GraphicsAdapter = GraphicsAdapter> = {
   addInteraction?: (interaction: Interaction<G>) => void;
   updateInteraction?: (interaction: Interaction<G>) => void;
   removeInteraction?: (interaction: Interaction<G>) => void;
+
+  addAnimationArea?: (area: AnimationArea<G>) => void;
+  updateAnimationArea?: (area: AnimationArea<G>) => void;
+  removeAnimationArea?: (area: AnimationArea<G>) => void;
 
   addChatProbe?: (chatProbe: ChatProbe<G>) => void;
   updateChatProbe?: (chatProbe: ChatProbe<G>) => void;
