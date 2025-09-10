@@ -1,4 +1,4 @@
-import { ChatProbe, Interaction, MElement } from "../elements";
+import { AnimationArea, ChatProbe, Interaction, MElement } from "../elements";
 import { GraphicsAdapter } from "../graphics";
 import { LoadingProgressManager } from "../loading";
 import { IMMLScene, LinkProps, PromptProps } from "../scene";
@@ -8,6 +8,21 @@ export function createWrappedScene<G extends GraphicsAdapter = GraphicsAdapter>(
   loadingProgressManager: LoadingProgressManager | null,
 ): IMMLScene<G> {
   return {
+    addAnimationArea(area: AnimationArea<G>): void {
+      if (scene.addAnimationArea) {
+        scene.addAnimationArea(area);
+      }
+    },
+    updateAnimationArea(area: AnimationArea<G>): void {
+      if (scene.updateAnimationArea) {
+        scene.updateAnimationArea(area);
+      }
+    },
+    removeAnimationArea(area: AnimationArea<G>): void {
+      if (scene.removeAnimationArea) {
+        scene.removeAnimationArea(area);
+      }
+    },
     addCollider(collider: unknown, element: MElement<G>): void {
       if (scene.addCollider) {
         scene.addCollider(collider, element);

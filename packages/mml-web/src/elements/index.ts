@@ -1,4 +1,5 @@
 export * from "./Animation";
+export * from "./AnimationArea";
 export * from "./AttributeAnimation";
 export * from "./AttributeLerp";
 export * from "./Audio";
