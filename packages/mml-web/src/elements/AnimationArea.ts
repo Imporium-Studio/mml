@@ -17,7 +17,7 @@ const defaultDebug = false;
 
 export type MAnimationAreaProps = {
   range: number;
-  animationSrc: string | null;
+  src: string | null;
   loop: boolean;
   speed: number;
   priority: number;
@@ -32,7 +32,7 @@ export class AnimationArea<
 
   public props: MAnimationAreaProps = {
     range: defaultAnimationAreaRange,
-    animationSrc: defaultAnimationSrc,
+    src: defaultAnimationSrc,
     loop: defaultAnimationLoop,
     speed: defaultAnimationSpeed,
     priority: defaultPriority,
@@ -58,8 +58,8 @@ export class AnimationArea<
         parseFloatAttribute(newValue, defaultAnimationAreaRange),
       );
     },
-    animationSrc: (instance, newValue) => {
-      instance.props.animationSrc = newValue;
+    src: (instance, newValue) => {
+      instance.props.src = newValue;
     },
     loop: (instance, newValue) => {
       instance.props.loop = parseBoolAttribute(newValue, defaultAnimationLoop);
