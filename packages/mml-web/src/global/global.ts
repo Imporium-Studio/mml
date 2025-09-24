@@ -12,6 +12,10 @@ export function setGlobalMMLScene(sceneArg: IMMLScene<GraphicsAdapter>) {
   scene = sceneArg;
 }
 
+export function clearGlobalMMLScene() {
+  scene = null;
+}
+
 export function getGlobalMMLScene(): IMMLScene<GraphicsAdapter> {
   if (!scene) {
     throw new Error("GlobalMMLScene not set");
@@ -24,6 +28,10 @@ export function setGlobalDocumentTimeManager(documentTimeManagerArg: MMLDocument
     throw new Error("GlobalDocumentTimeManager already set");
   }
   documentTimeManager = documentTimeManagerArg;
+}
+
+export function clearGlobalDocumentTimeManager() {
+  documentTimeManager = null;
 }
 
 export function getGlobalDocumentTimeManager(): MMLDocumentTimeManager {
