@@ -1,6 +1,6 @@
 {
   "name": "@imporium-studio/mml-web",
-  "version": "0.21.3-beta.0",
+  "version": "0.21.3-beta.3",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
